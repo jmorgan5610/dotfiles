@@ -1,0 +1,26 @@
+#!/bin/sh
+set -eu
+
+if [ "{{ .chezmoi.os }}" != "linux" ] || [ ! -r /etc/os-release ]; then
+  exit 0
+fi
+
+. /etc/os-release
+if [ "${ID:-}" != "ubuntu" ]; then
+  printf '%s\n' "Skipping APT bootstrap: this setup currently supports Ubuntu only."
+  exit 0
+fi
+
+packages="build-essential ca-certificates curl git tmux unzip bash-completion"
+missing=""
+for package in $packages; do
+  if ! dpkg-query -W -f='${Status}' "$package" 2>/dev/null | grep -q 'install ok installed'; then
+    missing="$missing $package"
+  fi
+done
+
+if [ -n "$missing" ]; then
+  sudo apt-get update
+  # shellcheck disable=SC2086
+  sudo apt-get install -y $missing
+fi

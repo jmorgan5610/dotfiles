@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+# Re-run when the managed tool manifest changes.
+# config hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
+"$HOME/.local/bin/mise" install --yes

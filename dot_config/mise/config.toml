@@ -1,0 +1,11 @@
+[tools]
+node = "latest"
+python = "latest"
+uv = "latest"
+pnpm = "latest"
+neovim = "latest"
+starship = "latest"
+"github:anomalyco/opencode" = "latest"
+ripgrep = "latest"
+fd = "latest"
+fzf = "latest"

@@ -1,0 +1,31 @@
+add_newline = true
+format = "[$directory$git_branch$git_status]($style)$character"
+palette = "tokyo_night_moon"
+
+[character]
+success_symbol = "[❯](bold tn_cyan)"
+error_symbol = "[❯](bold tn_red)"
+
+[directory]
+style = "bold tn_cyan"
+
+[git_branch]
+style = "bold tn_purple"
+
+[git_status]
+style = "bold tn_red"
+
+[palettes.tokyo_night_moon]
+tn_bg = "#222436"
+tn_bg_highlight = "#2f334d"
+tn_fg = "#c8d3f5"
+tn_comment = "#636da6"
+tn_red = "#ff757f"
+tn_orange = "#ff966c"
+tn_yellow = "#ffc777"
+tn_green = "#c3e88d"
+tn_teal = "#4fd6be"
+tn_cyan = "#86e1fc"
+tn_blue = "#82aaff"
+tn_purple = "#fca7ea"
+tn_magenta = "#c099ff"
